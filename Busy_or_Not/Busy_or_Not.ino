@@ -1,32 +1,36 @@
 #include <Servo.h>
 Servo myServo;
 
-int const buttonPin = 13;
-bool busy = 0;
-bool pressing = 0;
+const int buttonPin = 13;
+const int servoPin = 9;
+const int idleAngle = 0;
+const int busyAngle = 175;
+
+bool busy = false;
+bool isPressing = false;
+
+void turn() {
+  busy = !busy;
+  myServo.write(busy ? busyAngle : idleAngle);
+  delay(300);
+}
 
 void setup() {
-  myServo.attach(9);
+  myServo.attach(servoPin);
   pinMode(buttonPin, INPUT);
-  myServo.write(0);
+  myServo.write(idleAngle);
 }
 
 void loop() {
-  if(digitalRead(buttonPin)){
-    if(!pressing){
-      pressing = 1;
+  if (digitalRead(buttonPin)) {
+    if (!isPressing) {
+      isPressing = true;
       turn();
     }
   }
-  else{
-    pressing = 0;
+  else {
+    isPressing = false;
   }
-  
-  delay(10);
-}
 
-void turn(){
-  busy = !busy;
-  myServo.write(175 * busy);
-  delay(300);
+  delay(10);
 }

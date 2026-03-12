@@ -6,36 +6,44 @@ const int ledPin = 13;
 const int piezoPin = 7;
 const int photoPin = A5;
 
+int calibratedPitch(int sensorReading) {
+  if (sensorHigh <= sensorLow) {
+    return 0;
+  }
+
+  return map(sensorReading, sensorLow, sensorHigh, 50, 4000);
+}
 
 void setup() {
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, HIGH);
-  while(millis() < 5000){
+  while (millis() < 5000) {
     sensorValue = analogRead(photoPin);
-    if(sensorValue > sensorHigh)
+    if (sensorValue > sensorHigh) {
       sensorHigh = sensorValue;
+    }
 
-    if(sensorValue < sensorLow)
+    if (sensorValue < sensorLow) {
       sensorLow = sensorValue;
+    }
   }
 
   digitalWrite(ledPin, LOW);
   Serial.begin(9600);
-  
-
 }
 
 void loop() {
   sensorValue = analogRead(photoPin);
 
-  int pitch = map(sensorValue, sensorLow, sensorHigh, 50, 4000);
+  int pitch = calibratedPitch(sensorValue);
   Serial.println(pitch);
 
-  if(pitch < 0)
+  if (pitch <= 0) {
     noTone(piezoPin);
-  else
+  }
+  else {
     tone(piezoPin, pitch, 20);
-  
-  delay(10);
+  }
 
+  delay(10);
 }

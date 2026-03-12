@@ -1,26 +1,43 @@
-int buttons[6];
-int notes[] = {262, 294, 330, 349};
+const int buzzerPin = 7;
+const int keyboardPin = A0;
+
+const int notes[] = {262, 294, 330, 349};
+
+int noteIndexForReading(int keyVal) {
+  if (keyVal >= 1018) {
+    return 0;
+  }
+
+  if (keyVal >= 990 && keyVal <= 1010) {
+    return 1;
+  }
+
+  if (keyVal >= 505 && keyVal <= 515) {
+    return 2;
+  }
+
+  if (keyVal >= 5 && keyVal <= 10) {
+    return 3;
+  }
+
+  return -1;
+}
 
 
 void setup() {
-  buttons[0] = 2;
   Serial.begin(9600);
-
 }
 
 void loop() {
-  int keyVal = analogRead(A0);
+  int keyVal = analogRead(keyboardPin);
+  int noteIndex = noteIndexForReading(keyVal);
 
   Serial.println(keyVal);
 
-  if(keyVal == 1023)
-    tone(7, notes[0]);
-  else if(keyVal >= 990 && keyVal <= 1010)
-    tone(7, notes[1]);
-  else if(keyVal >= 505 && keyVal <= 515)
-    tone(7, notes[2]);
-  else if(keyVal >= 5 && keyVal <= 10)
-    tone(7, notes[3]);
-  else
-    noTone(7);
+  if (noteIndex >= 0) {
+    tone(buzzerPin, notes[noteIndex]);
+  }
+  else {
+    noTone(buzzerPin);
+  }
 }
