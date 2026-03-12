@@ -5,6 +5,20 @@
   calibration, and the current pitch is printed to the serial monitor.
 */
 
+// Photoresistor divider
+// 5V ---- photoresistor ----+---- A5
+//                           |
+//                         resistor
+//                           |
+// GND ----------------------+
+//
+// Piezo buzzer
+// Pin 7 -- positive lead
+// GND ---- negative lead
+//
+// Calibration LED
+// Pin 13 --- built-in LED or external LED with resistor to GND
+
 int sensorValue;
 int sensorLow = 1023;
 int sensorHigh = 0;

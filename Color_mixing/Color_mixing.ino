@@ -5,6 +5,18 @@
   the scaled PWM output values are printed to the serial monitor.
 */
 
+// Analog color inputs
+// A0 ---- red control input
+// A1 ---- green control input
+// A2 ---- blue control input
+// Each input should be wired as an analog voltage source, such as a potentiometer.
+//
+// RGB LED outputs
+// Pin 11 --- resistor --- red LED channel
+// Pin 9 ---- resistor --- green LED channel
+// Pin 10 --- resistor --- blue LED channel
+// RGB LED common leg goes to GND for a common-cathode LED.
+
 const int greenLedPin = 9;
 const int blueLedPin = 10;
 const int redLedPin = 11;

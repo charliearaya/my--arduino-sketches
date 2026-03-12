@@ -5,6 +5,16 @@
   prints both the raw sensor value and the mapped angle.
 */
 
+// Potentiometer
+// 5V ----- one outer pin
+// A0 ----- center pin
+// GND ---- other outer pin
+//
+// Servo
+// Pin 9 -- signal
+// 5V ---- VCC
+// GND --- GND
+
 #include <Servo.h>
 Servo myServo;
 

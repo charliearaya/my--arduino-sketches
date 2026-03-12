@@ -5,6 +5,14 @@
   analog reading to help tune the key ranges.
 */
 
+// Button ladder / analog keyboard
+// 5V ---- button network with different resistor paths ---- A0
+// GND --- common return for the button network
+//
+// Piezo buzzer
+// Pin 7 -- positive lead
+// GND ---- negative lead
+
 const int buzzerPin = 7;
 const int keyboardPin = A0;
 

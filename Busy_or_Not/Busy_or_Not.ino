@@ -5,6 +5,15 @@
   create a simple mechanical status sign.
 */
 
+// Pushbutton
+// Pin 13 -- button -- 5V
+// GND connection depends on whether you use an external pull-down resistor.
+//
+// Servo
+// Pin 9 -- signal
+// 5V ---- VCC
+// GND --- GND
+
 #include <Servo.h>
 Servo myServo;
 

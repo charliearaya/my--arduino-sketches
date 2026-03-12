@@ -5,6 +5,15 @@
   LED, and the serial monitor prints the smoothed temperature and output values.
 */
 
+// TMP36 / analog temperature sensor
+// 5V ---- sensor VCC
+// A0 ---- sensor OUT
+// GND --- sensor GND
+//
+// Pin 11 --- resistor ---|>|--- GND   (Red LED)
+// Pin 10 --- resistor ---|>|--- GND   (Blue LED)
+// Pin 9 is defined but not driven in this sketch.
+
 const int greenLedPin = 9;
 const int blueLedPin = 10;
 const int redLedPin = 11;
