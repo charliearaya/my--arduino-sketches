@@ -1,3 +1,10 @@
+/*
+  Temperature LED
+  Reads a temperature sensor on A0 and blends two LEDs to show the result.
+  Cooler temperatures drive the blue LED, warmer temperatures drive the red
+  LED, and the serial monitor prints the smoothed temperature and output values.
+*/
+
 const int greenLedPin = 9;
 const int blueLedPin = 10;
 const int redLedPin = 11;

@@ -1,3 +1,10 @@
+/*
+  Battery Tester
+  Measures a CR2032 battery through a voltage divider on A0 using the
+  internal analog reference. Three LEDs indicate whether the battery is
+  good, usable, or low, and the measured voltage is printed over serial.
+*/
+
 // CR2032 (+)
 //     |
 //    R1  (10k)

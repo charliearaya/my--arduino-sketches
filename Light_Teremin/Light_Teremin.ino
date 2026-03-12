@@ -1,3 +1,10 @@
+/*
+  Light Theremin
+  Calibrates a photoresistor on A5 for five seconds, then maps light levels
+  to pitch on a piezo buzzer on pin 7. The LED on pin 13 stays on during
+  calibration, and the current pitch is printed to the serial monitor.
+*/
+
 int sensorValue;
 int sensorLow = 1023;
 int sensorHigh = 0;

@@ -1,3 +1,10 @@
+/*
+  Color Mixing
+  Reads three analog channels from red, green, and blue inputs and maps
+  them directly to an RGB LED on pins 11, 9, and 10. Raw sensor values and
+  the scaled PWM output values are printed to the serial monitor.
+*/
+
 const int greenLedPin = 9;
 const int blueLedPin = 10;
 const int redLedPin = 11;

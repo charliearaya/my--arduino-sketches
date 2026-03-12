@@ -1,3 +1,10 @@
+/*
+  Mood Cue
+  Reads a potentiometer on A0 and maps that value to a servo angle.
+  The servo on pin 9 follows the knob position, and the serial monitor
+  prints both the raw sensor value and the mapped angle.
+*/
+
 #include <Servo.h>
 Servo myServo;
 

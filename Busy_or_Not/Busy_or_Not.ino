@@ -1,3 +1,10 @@
+/*
+  Busy or Not
+  Uses a button on pin 13 to toggle a servo on pin 9 between two positions.
+  Each press flips the indicator between an idle angle and a busy angle to
+  create a simple mechanical status sign.
+*/
+
 #include <Servo.h>
 Servo myServo;
 

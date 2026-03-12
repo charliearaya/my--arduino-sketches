@@ -1,3 +1,10 @@
+/*
+  Keyboard Instrument
+  Reads an analog resistor ladder on A0 and plays one of four notes
+  through a buzzer on pin 7. The serial monitor shows the current
+  analog reading to help tune the key ranges.
+*/
+
 const int buzzerPin = 7;
 const int keyboardPin = A0;
 
